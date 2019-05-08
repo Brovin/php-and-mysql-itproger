@@ -11,21 +11,45 @@
 </head>
 <body>
     <?php
-        class User {
-            public $name;
-            private $surname;
-            private $email;
-            private $login;
-            private $password;
+        class Car {
+            protected $speed;
+            protected $model;
+
+            function __construct($speed, $model)
+            {
+                $this->speed = $speed;
+                $this->model = $model;
+            }
+
+            function showSpecifications() {
+                echo 'Скорость автомобиля : ' . $this->speed . '<br>';
+                echo 'Модель автомобиля : ' . $this->model . '<br>';
+            }
         }
 
-        $admin = new User();
-        $admin->$name = "Dan";
-        echo $admin->$name . '<br>';
+        class BMW extends Car {
+            private $color;
 
-        $redactor = new User();
-        $redactor->$name = "Max";
-        echo $redactor->$name;
+            function __construct($speed, $model, $color)
+            {
+                parent::__construct($speed, $model);
+                $this->color = $color;
+            }
+
+            function showColor() {
+                echo 'Цвет автомобиля : ' . $this->color . '<br>';
+            }
+        }
+
+        $m3 = new BMW(250, "M3", "Black");
+        $m3->showSpecifications();
+        $m3->showColor();
+        
+        $m3 = new BMW(310, "X5", "White");
+        $m3->showSpecifications();
+        $m3->showColor();
+
+
     ?>
 </body>
 </html>

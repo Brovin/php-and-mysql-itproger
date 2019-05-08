@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +10,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/write.php" method="post">
-        <textarea name="message" id="" cols="30" rows="10"></textarea><br>
+    <form action="/action.php" method="post">
+        <label for="name">Введите ваше Имя</label><br>
+        <input type="text" name="name"><br>
+        <label for="email">Введите ваш Email</label><br>
+        <input type="email" name="email"><br><br>
         <button type="submit">Отправить</button>
     </form>
     <?php
-        echo file_get_contents('text.txt') . '<br>';
+        if($_SESSION['name'] != "" || $_SESSION['enail'] != "") {
+            echo 'Имя пользователя: ' . $_SESSION['name'] . '<br>';
+            echo 'Email пользователя: ' . $_SESSION['email'] . '<br>';
+        }
+
+        if($_COOKIE['name'] != "" || $_COOKIE['enail'] != "") {
+            echo 'Имя пользователя: ' . $_COOKIE['name'] . '<br>';
+            echo 'Email пользователя: ' . $_COOKIE['email'] . '<br>';
+        }
     ?>
 </body>
 </html>

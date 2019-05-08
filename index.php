@@ -11,45 +11,69 @@
 </head>
 <body>
     <?php
-        class Car {
+
+        abstract class Car {
             protected $speed;
-            protected $model;
+            protected $color;
 
-            function __construct($speed, $model)
-            {
-                $this->speed = $speed;
-                $this->model = $model;
-            }
-
-            function showSpecifications() {
-                echo 'Скорость автомобиля : ' . $this->speed . '<br>';
-                echo 'Модель автомобиля : ' . $this->model . '<br>';
-            }
+            abstract protected function showInfo();
         }
 
         class BMW extends Car {
-            private $color;
 
-            function __construct($speed, $model, $color)
-            {
-                parent::__construct($speed, $model);
+            function __construct($speed, $color) {
+                $this->speed = $speed;
                 $this->color = $color;
             }
 
-            function showColor() {
-                echo 'Цвет автомобиля : ' . $this->color . '<br>';
+            function showInfo() {
+                echo 'Скорость автомобиля: ' . $this->speed . '<br>';
+                echo 'Цвет автомобиля: ' . $this->color . '<br>';
             }
         }
 
-        $m3 = new BMW(250, "M3", "Black");
-        $m3->showSpecifications();
-        $m3->showColor();
-        
-        $m3 = new BMW(310, "X5", "White");
-        $m3->showSpecifications();
-        $m3->showColor();
+        interface Human {
+            public function talk();
+            public function walk();
+        }
 
+        interface Mutant {
+            public function fly();
+        }
 
+        trait PrintSome {
+            function say() {
+                echo 'Привет<br>';
+            }
+        }
+
+        class Person implements Human, Mutant {
+            function talk() {
+                echo 'Человек говорит<br>';
+            }
+
+            function walk() {
+                echo 'Человек ходит<br>';
+            }
+
+            function fly() {
+                echo 'Мутант умеет летать<br>';
+            }
+        }
+
+        class Test {
+            use PrintSome;
+        }
+
+        $max = new Person();
+        $max->talk();
+        $max->walk();
+        $max->fly();
+        $obj = new Test();
+        $obj->say();
+
+        $m3 = new BMW(310, 'Green');
+        $m3->showInfo();
     ?>
 </body>
 </html>

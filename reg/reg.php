@@ -21,7 +21,7 @@
   $db = 'testing';
   $host = 'localhost';
 
-  $dsn = 'mysql:host='.$host.';dbname='.$db;
+  $dsn = 'mysql:host='.$host.'; dbname='.$db;
   $pdo = new PDO($dsn, $user, $password);
   $sql = 'INSERT INTO users(name, email, login, pass) VALUES(?, ?, ?, ?)';
   $qwery = $pdo->prepare($sql);

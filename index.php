@@ -3,7 +3,7 @@
 <head>
   <?php 
     $website_title = 'PHP Blog';
-    require 'blocks/head.php'
+    require 'blocks/head.php';
   ?>
 </head>
 <body>
@@ -16,6 +16,6 @@
     <?php require 'blocks/aside.php'; ?>
   </div>
   </main>
-  <?php require 'blocks/footer.php'; ?>
+  <?php require 'blocks/footer.php'; ?> 
 </body>
 </html>

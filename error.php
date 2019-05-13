@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php require 'blocks/header.php'; ?>
-    <a href="/">На главную станицу</a>
+    <a href="/">Главная страница</a>
   <?php require 'blocks/footer.php'; ?>
 </body>
 </html>

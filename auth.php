@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-8 mb-3">
       <?php
-        if($_COOKIE['log'] == ''):
+        if($_COOKIE['login'] == ''):
       ?>
       <h4>Форма авторизации</h4>
       <form action="" method="post">
@@ -28,7 +28,7 @@
         <?php
           else:
         ?>
-        <h2><?=$_COOKIE['log']?></h2>
+        <h2><?=$_COOKIE['login']?></h2>
         <button class="btn btn-danger" id="exit_btn">Выйти</button>
         <?php
           endif;
